@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Steve CMS</title>
+
+  <!-- Font -->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
+
+  <!-- Styles -->
+  <%= stylesheet_link_tag "admin", media: "all" %>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!-- Scripts -->
+  <%= javascript_include_tag "admin" %>
+
+  <!-- Protect -->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <header id="header">
+      <div id="logo">
+        <h1><b>Steve</b> CMS</h1>
+      </div>
+      <div id="actions" class="pull-right">
+        <a href="#"><b>Sign out <i class="fa fa-sign-out"></i></b></a>
+      </div>
+    </header>
+
+    <div id="screen">
+      <aside id="sidebar">
+        <div class="profile">
+          <div class="profile-icon">
+            <img class="img-responsive" src="https://randomuser.me/api/portraits/med/men/81.jpg" />
+          </div>
+          <div class="profile-details">
+            <b>Keenan Thompson</b><br />
+            Administrator
+          </div>
+        </div>
+
+        <div class="navigation">
+          <%= render "navigation" %>
+        </div>
+      </aside>
+      <section id="content_wrapper">
+        <%= content_for(:before) %>
+
+        <div id="content">
+          <div class="content-header">
+            <ol class="breadcrumb">
+              <li class="crumb-active">
+                <a href="/admin/panel">Panel</a>
+              </li>
+              <li class="crumb-link">
+                <a href="/admin">Home</a>
+              </li>
+              <li class="crumb-trail">Panel</li>
+            </ol>
+          </div>
+
+          <%= yield %>
+        </div>
+      </section>
+    </div>
+
+    <footer id="footer" class="ribbon">
+      <p>
+        <b>Steve CMS v0.4.0-BETA</b> &raquo; Made with <i class="fa fa-heart"></i> by Keenan Thompson
+      </p>
+    </footer>
+</body>
+</html>
