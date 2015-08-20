@@ -1,0 +1,13 @@
+<%= content_for :content do %>
+    <%= stylesheet_link_tag "sessions" %>
+
+    <div class="island">
+      <div class="island-title">
+        <h1><%= content_for :title %></h1>
+      </div>
+      <div class="island-content">
+        <%= yield %>
+      </div>
+    </div>
+<% end %>
+<%= render 'layouts/admin/base' %>

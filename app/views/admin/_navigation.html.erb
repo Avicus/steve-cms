@@ -1,0 +1,50 @@
+
+
+<h5>Main</h5>
+<%= nav_link admin_path, :class => 'item' do %>
+  <i class="fa fa-home fa-fw"></i>
+  Home
+<% end %>
+<a href="#panels_collapse" class="item" data-toggle="collapse">
+  <i class="fa fa-cubes fa-fw"></i>
+  Panels
+</a>
+<div id="panels_collapse" class="collapse">
+  <%= nav_link "#", :class => 'item item-sub' do %>
+    <i class="fa fa-plus fa-fw"></i>
+    New
+  <% end %>
+</div>
+<!------------------------------------------------------------------------------->
+<h5>Administration</h5>
+<%= nav_link admin_users_path, :class => 'item' do %>
+  <i class="fa fa-user fa-fw"></i>
+  Users
+  <span class="label label-success pull-right">3</span>
+<% end %>
+
+<%= nav_link "#", :class => 'item' do %>
+  <i class="fa fa-commenting fa-fw"></i>
+  Forums
+  <span class="label label-danger pull-right">19</span>
+<% end %>
+
+<%= nav_link "#", :class => 'item' do %>
+  <i class="fa fa-users fa-fw"></i>
+  Groups
+<% end %>
+
+<%= nav_link "#", :class => 'item' do %>
+  <i class="fa fa-file-text fa-fw"></i>
+  Pages
+<% end %>
+<!------------------------------------------------------------------------------->
+<h5>Configuration</h5>
+<%= nav_link "#", :class => 'item' do %>
+  <i class="fa fa-sliders fa-fw"></i>
+  Preferences
+  <% end %>
+<%= nav_link admin_settings_path, :class => 'item' do %>
+  <i class="fa fa-cog fa-fw"></i>
+  Settings
+<% end %>

@@ -1,0 +1,56 @@
+<div class="content-padded">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="module">
+        <div class="module-title">
+          Client Settings
+        </div>
+        <div class="text">
+          <%= form_tag admin_settings_path do %>
+              <%= label_tag :site_name %>
+              <%= text_field_tag :site_name, @site[:name], :class => "form-control" %>
+
+              <%= label_tag :site_tagline %>
+              <%= text_field_tag :site_tagline, @site[:tagline], :class => "form-control" %>
+
+              <%= label_tag :site_time_zone %>
+              <%= time_zone_select :site_time_zone, ActiveSupport::TimeZone.all, @site[:time_zone], {}, :class => "form-control" %>
+
+              <%= label_tag :site_date_format %>
+              <%= select_tag :site_date_format, options_for_select(["August 20, 2015", "2015-08-20", "08/20/2015", "20/08/2015"]), :class => "form-control" %>
+
+              <%= label_tag :site_time_format %>
+              <%= select_tag :site_time_format, options_for_select(["6:25 am", "6:25 AM", "18:25"]), :class => "form-control" %>
+
+              <%= label_tag :site_language %>
+              <%= select_tag :site_language, options_for_select(["English (US)"]), :class => "form-control" %>
+
+              <div class="clearfix">
+                  <div class="pull-right">
+                    <%= submit_tag "Save", :class => "btn btn-success" %>
+                  </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="module">
+        <div class="module-title">
+          Steve Cms Settings
+        </div>
+        <div class="text">
+          <%= form_tag admin_settings_path do %>
+              <%= label_tag :version %>
+              <%= text_field_tag :version, @cms[:full_name], :class => "form-control", :disabled => "disabled" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

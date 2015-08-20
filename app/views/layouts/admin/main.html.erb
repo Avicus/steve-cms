@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Steve CMS</title>
-
-  <!-- Font -->
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
-
-  <!-- Styles -->
-  <%= stylesheet_link_tag "admin", media: "all" %>
-
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
-  <!-- Scripts -->
-  <%= javascript_include_tag "admin" %>
-
-  <!-- Protect -->
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
+<%= content_for :content do %>
     <header id="header">
       <div id="logo">
-        <h1><b>Steve</b> CMS</h1>
+        <h1>
+          <%= @site[:name] %>
+          <small><%= raw @site[:tagline] %></small>
+        </h1>
       </div>
       <div id="actions" class="pull-right">
         <a href="#"><b>Sign out <i class="fa fa-sign-out"></i></b></a>
@@ -33,21 +15,23 @@
       <aside id="sidebar">
         <div class="profile">
           <div class="profile-icon">
-            <img class="img-responsive" src="https://randomuser.me/api/portraits/med/men/81.jpg" />
+            <img class="img-responsive" src="https://avatars1.githubusercontent.com/u/1189775?v=3&s=460" />
           </div>
           <div class="profile-details">
             <b>Keenan Thompson</b><br />
-            Administrator
+            Developer
           </div>
         </div>
 
-        <div class="navigation">
-          <%= render "navigation" %>
+        <div class="navigation-outer">
+          <div class="navigation">
+            <%= render "admin/navigation" %>
+            <!-- Fancy scroll needs this -->
+            <br /><br /><br />
+          </div>
         </div>
       </aside>
       <section id="content_wrapper">
-        <%= content_for(:before) %>
-
         <div id="content">
           <div class="content-header">
             <ol class="breadcrumb">
@@ -71,5 +55,5 @@
         <b>Steve CMS v0.4.0-BETA</b> &raquo; Made with <i class="fa fa-heart"></i> by Keenan Thompson
       </p>
     </footer>
-</body>
-</html>
+<% end %>
+<%= render 'layouts/admin/base' %>

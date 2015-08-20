@@ -12,3 +12,12 @@
 //
 //= require jquery
 //= require_tree .
+
+$("document").ready(function() {
+    $("#sidebar .navigation").slimScroll({
+        height: "auto"
+    });
+    $("#content").slimScroll({
+        height: "auto"
+    });
+});

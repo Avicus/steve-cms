@@ -1,0 +1,38 @@
+body,html {
+    background-color: #f3f3f3;
+    overflow: hidden;
+}
+
+.island {
+    background: white;
+    width: 500px;
+    margin: 25px auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    max-width: 100%;
+    border: 1px solid #dddddd;
+}
+
+.island-title {
+    background-color: #fbfbfb;
+    border-bottom: 1px solid #c6c6c6;
+    padding: 15px 25px;
+}
+
+.island-title h1 {
+    margin: 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #888;
+}
+
+.island-content {
+    padding: 25px;
+}
+
+body {
+    background-image: url(http://image.noelshack.com/fichiers/2012/27/1341210992-moat_cailin.jpg);
+    background-size: cover;
+}

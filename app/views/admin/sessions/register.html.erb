@@ -1,0 +1,23 @@
+<%= content_for :title, "Login to #{@site[:name]}" %>
+
+<%= form_tag register_path do %>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email], :class => "form-control" %>
+
+    <%= label_tag :password %>
+    <%= password_field_tag :password, "", :class => "form-control" %>
+
+    <%= label_tag :password_confirmation %>
+    <%= password_field_tag :password_confirmation, "", :class => "form-control" %>
+
+    <div class="checkbox">
+      <%= label_tag :remember_me do %>
+          <%= check_box_tag :remember_me, 0 %>
+          Remember Me
+      <% end %>
+    </div>
+
+
+    <%= submit_tag "Register", :class => "btn btn-primary" %>
+    <%= link_to "Login", login_path, :class => "btn btn-link" %>
+<% end %>
