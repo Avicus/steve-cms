@@ -10,5 +10,15 @@ class ApplicationController < ActionController::Base
     @cms[:full_name] = @cms[:name] + " " + @cms[:version]
 
     @site = HashWithIndifferentAccess.new(YAML.load(File.read(Rails.root.join('settings', 'site.yml'))))
+
+    @config = HashWithIndifferentAccess.new(YAML.load(File.read(Rails.root.join('settings', 'config.yml'))))
+  end
+
+  def current_user
+    User.find_by_id(cookies.signed[:user_id])
+  end
+
+  def current_user?
+    current_user != nil
   end
 end

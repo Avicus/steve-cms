@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819214350) do
+ActiveRecord::Schema.define(version: 20150820131830) do
 
   create_table "group_permissions", force: true do |t|
     t.integer  "group_id"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20150819214350) do
     t.datetime "updated_at"
   end
 
-  add_index "group_permissions", ["group_id"], name: "index_group_permissions_on_group_id"
+  add_index "group_permissions", ["group_id"], name: "index_group_permissions_on_group_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "name"
@@ -39,8 +39,16 @@ ActiveRecord::Schema.define(version: 20150819214350) do
     t.datetime "updated_at"
   end
 
-  add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id"
-  add_index "user_groups", ["user_id"], name: "index_user_groups_on_user_id"
+  add_index "user_groups", ["group_id"], name: "index_user_groups_on_group_id", using: :btree
+  add_index "user_groups", ["user_id"], name: "index_user_groups_on_user_id", using: :btree
+
+  create_table "usernames", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+  end
+
+  add_index "usernames", ["user_id"], name: "index_usernames_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "display_name"

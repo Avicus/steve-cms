@@ -1,14 +1,25 @@
 <%= content_for :title, "Login to #{@site[:name]}" %>
 
-<%= form_tag register_path do %>
-    <%= label_tag :email %>
-    <%= text_field_tag :email, params[:email], :class => "form-control" %>
+<%= form_for @user, :url => register_path do |f| %>
 
-    <%= label_tag :password %>
-    <%= password_field_tag :password, "", :class => "form-control" %>
+    <% if @user.errors.size > 0 %>
+        <div class='alert alert-danger'>
+            <b>We ran into an issue when creating your account:</b>
+            <ul>
+                <% @user.errors.full_messages.each do |error| %>
+                  <li><%= error %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
 
-    <%= label_tag :password_confirmation %>
-    <%= password_field_tag :password_confirmation, "", :class => "form-control" %>
+    <%= render 'registration_method', :f => f %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, :class => "form-control" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :class => "form-control" %>
 
     <div class="checkbox">
       <%= label_tag :remember_me do %>
