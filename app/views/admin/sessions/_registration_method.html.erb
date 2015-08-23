@@ -1,0 +1,9 @@
+<% if @config[:registration][:username] %>
+    <%= f.label :username %>
+    <%= f.text_field :username, :class => "form-control" %>
+<% end %>
+
+<% if @config[:registration][:email] %>
+    <%= f.label :email %>
+    <%= f.text_field :email, :class => "form-control" %>
+<% end %>

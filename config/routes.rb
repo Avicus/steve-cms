@@ -19,7 +19,7 @@ SteveCms::Application.routes.draw do
     post 'password_reset' => 'admin/sessions#reset'
     get 'login' => 'admin/sessions#login'
     post 'login' => 'admin/sessions#login'
-    post 'logout' => 'admin/sessions#logout'
+    get 'logout' => 'admin/sessions#logout'
     get 'register' => 'admin/sessions#register'
     post 'register' => 'admin/sessions#register'
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819214350) do
+ActiveRecord::Schema.define(version: 20150820131830) do
 
   create_table 'group_permissions', force: true do |t|
     t.integer 'group_id'
