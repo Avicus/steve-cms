@@ -1,4 +1,4 @@
-<%= content_for :title, "Reset your password" %>
+<%= content_for :title, 'Reset your password' %>
 
 <% if @reset.presence && !@reset %>
     An email has been sent to <b><%= params[:email] %></b> with details regarding how to reset your password.
@@ -10,8 +10,8 @@
 
     <%= form_tag password_reset_path do %>
         <%= label_tag :email %>
-        <%= text_field_tag :email, @email, :class => "form-control" %>
+        <%= text_field_tag :email, @email, :class => 'form-control' %>
 
-        <%= submit_tag "Send reset information", :class => "btn btn-primary" %>
+        <%= submit_tag 'Send reset information', :class => 'btn btn-primary' %>
     <% end %>
 <% end %>

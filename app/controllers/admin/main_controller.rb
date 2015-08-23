@@ -4,7 +4,7 @@ class Admin::MainController < Admin::BaseController
   end
 
   def not_found
-    render :text => "404"
+    render :text => '404'
   end
 
 end

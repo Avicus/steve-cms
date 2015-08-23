@@ -7,7 +7,9 @@ gem 'rails', '4.0.2'
 gem 'liquid'
 
 # Secure passwords
-gem 'bcrypt'
+gem 'bcrypt-ruby', '~> 3.1.2'
+
+gem 'haml'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

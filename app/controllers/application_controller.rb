@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
 
   def globals
     @cms = Hash.new
-    @cms[:name] = "Steve CMS"
-    @cms[:version] = "v0.0.0-BETA"
-    @cms[:full_name] = @cms[:name] + " " + @cms[:version]
+    @cms[:name] = 'Steve CMS'
+    @cms[:version] = 'v0.0.0-BETA'
+    @cms[:full_name] = @cms[:name] + ' ' + @cms[:version]
 
     @site = HashWithIndifferentAccess.new(YAML.load(File.read(Rails.root.join('settings', 'site.yml'))))
   end
