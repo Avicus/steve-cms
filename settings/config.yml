@@ -1,6 +1,0 @@
-authentication:
-  identifier: "username"
-registration:
-  username: true
-  email: false
-  minecraft: false

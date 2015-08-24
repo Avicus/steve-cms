@@ -6,18 +6,20 @@
           Client Settings
         .text
           = form_tag admin_settings_path do
-            = label_tag :site_name
-            = text_field_tag :site_name, @site[:name], :class => 'form-control'
-            = label_tag :site_tagline
-            = text_field_tag :site_tagline, @site[:tagline], :class => 'form-control'
-            = label_tag :site_time_zone
-            = time_zone_select :site_time_zone, ActiveSupport::TimeZone.all, @site[:time_zone], {}, :class => 'form-control'
-            = label_tag :site_date_format
-            = select_tag :site_date_format, options_for_select(['August 20, 2015', '2015-08-20', '08/20/2015', '20/08/2015']), :class => 'form-control'
-            = label_tag :site_time_format
-            = select_tag :site_time_format, options_for_select(['6:25 am', '6:25 AM', '18:25']), :class => 'form-control'
-            = label_tag :site_language
-            = select_tag :site_language, options_for_select(['English (US)']), :class => 'form-control'
+            = hidden_field_tag :category, :site
+
+            = label_tag :name, 'Site name'
+            = text_field_tag :name, @config.get(:site)[:name], :class => 'form-control'
+            = label_tag :tagline, 'Site tagline'
+            = text_field_tag :tagline, @config.get(:site)[:tagline], :class => 'form-control'
+            = label_tag :time_zone
+            = time_zone_select :time_zone, ActiveSupport::TimeZone.all, @config.get(:site)[:time_zone], {}, :class => 'form-control'
+            = label_tag :date_format
+            = select_tag :date_format, options_for_select(['August 20, 2015', '2015-08-20', '08/20/2015', '20/08/2015'], @config.get(:site)[:date_format]), :class => 'form-control'
+            = label_tag :time_format
+            = select_tag :time_format, options_for_select(['6:25 am', '6:25 AM', '18:25'], @config.get(:site)[:time_format]), :class => 'form-control'
+            = label_tag :language
+            = select_tag :language, options_for_select(['English (US)'], @config.get(:site)[:language]), :class => 'form-control'
             .clearfix
               .pull-right
                 = submit_tag 'Save', :class => 'btn btn-success'

@@ -1,0 +1,36 @@
+= javascript_include_tag 'modules/users'
+
+.module
+  .module-title
+    Users
+  .text
+    .row
+      .col-lg-4
+        = form_tag admin_users_path, :class => 'form-user-search' do
+          .input-group
+            = search_field_tag :search, @search, :class => 'form-control', :placeholder => 'Filter...', :autocomplete => 'off'
+            = hidden_field_tag :search_type, @search_type || 'username'
+            .input-group-btn
+              = button_tag :class => 'btn btn-info dropdown-toggle', 'data-toggle' => 'dropdown' do
+                %span.search-type Username
+                %span.caret
+              %ul.dropdown-menu.dropdown-menu-right.search-type-select
+                %li
+                  %a{:href => "#"} Username
+                %li
+                  %a{:href => "#"} Email
+                %li
+                  %a{:href => "#"} Groups
+    %br
+    %table.table.form-user-search-results.table-hover
+      %thead
+        %tr
+          %th
+            Username
+          %th
+            Groups
+          %th
+            First Recorded
+          %th
+            Last Seen
+      %tbody

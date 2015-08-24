@@ -1,9 +1,9 @@
-<% if @config[:registration][:username] %>
+<% if @config.get(:authentication)[:username] %>
     <%= f.label :username %>
     <%= f.text_field :username, :class => "form-control" %>
 <% end %>
 
-<% if @config[:registration][:email] %>
+<% if @config.get(:authentication)[:email] %>
     <%= f.label :email %>
     <%= f.text_field :email, :class => "form-control" %>
 <% end %>

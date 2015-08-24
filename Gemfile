@@ -11,6 +11,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'haml'
 
+gem 'js-routes'
+
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 

@@ -1,38 +1,4 @@
 .content-padded
   .row
     .col-lg-6
-      .module
-        .module-title
-          Users
-        .text
-
-          %table.table
-            %tr
-              %th
-                Username
-              %th
-                Groups
-              %th
-                First Recorded
-              %th
-                Last Seen
-          - User.all.each do |user|
-            %tr
-              %td
-                = user.display_name
-              %td
-                Diamond
-              %td
-                = user.created_at
-              %td
-                = user.updated_at
-  %br/
-  .row
-    .col-lg-6
-      .module
-        .module-title
-          Steve Cms Settings
-        .text
-          = form_tag admin_settings_path do
-            = label_tag :version
-            = text_field_tag :version, @cms[:full_name], :class => 'form-control', :disabled => 'disabled'
+      = render 'module'

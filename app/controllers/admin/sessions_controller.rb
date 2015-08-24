@@ -2,16 +2,25 @@ class Admin::SessionsController < Admin::BaseController
   layout 'admin/sessions'
   skip_before_filter :check_admin
 
-  def save_session
-
-  end
-
   def login
-    identifier = @config[:authentication][:identifier]
-    @identifier_name = identifier.titleize
+    auth = @config.get(:authentication)
+
+    identifiers = []
+
+    auth.each do |name,config|
+      identifiers += [name]
+    end
+
+    @identifier_names = identifiers.join(' or ').capitalize
 
     if request.post?
-      user = User.find_by_identifier(identifier, params[:identifier])
+      user = nil
+      identifiers.each do |name|
+        if user == nil
+          user = User.find_by_identifier(name, params[:identifier])
+        end
+      end
+
       if user == nil
         flash.now[:error] = "We couldn't find that user."
       elsif user.authenticate(params[:password])
@@ -23,18 +32,18 @@ class Admin::SessionsController < Admin::BaseController
         end
 
         flash[:notice] = "Welcome back, #{user.name}!"
-        redirect_to session[:redirect] || "/"
+        redirect_to session[:redirect] || '/'
         session.delete :redirect
       else
-        flash.now[:error] = "The #{@config[:authentication][:identifier]} and password you entered don't match."
+        flash.now[:error] = "The account and password combination you entered don't match."
       end
     end
   end
 
   def logout
     cookies.delete(:user_id)
-    flash[:warning] = "You have signed out of your account."
-    redirect_to "/"
+    flash[:warning] = 'You have signed out of your account.'
+    redirect_to '/'
   end
 
   def password_reset
@@ -49,7 +58,7 @@ class Admin::SessionsController < Admin::BaseController
     if request.post?
       @user = User.new(registration_params)
       if @user.save
-        flash[:notice] = "Success! Your account has been created."
+        flash[:notice] = 'Success! Your account has been created.'
         redirect_to login_path
       end
     end

@@ -5,8 +5,9 @@ class Admin::BaseController < ApplicationController
   before_filter :check_admin
 
   def check_admin
-    render :text => current_user.to_json
-    return
+    unless current_user?
+      # return if redirect_to(login_path, :flash => {:error => 'You must login to access that part of the website.'})
+    end
   end
 
 end

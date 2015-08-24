@@ -5,10 +5,12 @@ SteveCms::Application.routes.draw do
 
     scope 'users' do
       get '' => 'users#index', :as => 'users'
+      post 'search' => 'users#search', :as => 'users_search'
     end
 
     scope 'settings' do
       get '' => 'settings#index', :as => 'settings'
+      post '' => 'settings#index'
     end
 
     get '*unmatched_route' => 'main#not_found'
@@ -24,7 +26,6 @@ SteveCms::Application.routes.draw do
     post 'register' => 'admin/sessions#register'
   end
 
-  root 'admin/main#index'
-
-  # match '*path' => 'client#route', :via => :all
+  root 'client#route'
+  match '*path' => 'client#route', :via => :all
 end

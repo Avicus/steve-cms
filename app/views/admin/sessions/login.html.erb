@@ -1,4 +1,4 @@
-<%= content_for :title, "Login to #{@site[:name]}" %>
+<%= content_for :title, "Login to #{@config.get(:site)[:name]}" %>
 
 <%= form_tag login_path do %>
     <% if flash.now[:error] %>
@@ -7,7 +7,7 @@
         </div>
     <% end %>
 
-    <%= label_tag :identifier, @identifier_name %>
+    <%= label_tag :identifier, @identifier_names %>
     <%= text_field_tag :identifier, params[:identifier], :class => "form-control" %>
 
     <%= label_tag :password %>

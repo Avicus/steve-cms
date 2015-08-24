@@ -1,0 +1,35 @@
+$(document).on('submit', '.form-user-search', function(event) {
+    event.preventDefault();
+    filterUsers();
+});
+$(document).on('keyup', '.form-user-search input', function() {
+    filterUsers();
+});
+var userTimer;
+var userRequest;
+function filterUsers() {
+    if (userRequest)
+        userRequest.abort();
+    clearTimeout(userTimer);
+
+    var results = $('.form-user-search-results');
+    results.css('opacity', '0.5');
+
+    userTimer = setTimeout(function () {
+        userRequest = $.ajax({
+            type: "POST",
+            url: Routes.admin_users_search_path(),
+            data: $('.form-user-search').serialize(),
+            success: function (data) {
+                results.find('tbody').html(data);
+                results.css('opacity', '1.0');
+            },
+            error: function (xhr, textStatus, error) {
+                displayError('Oops! An error occurred: ' + error);
+            }
+        });
+    }, 400);
+}
+$(document).ready(function() {
+    filterUsers();
+});

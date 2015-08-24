@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin &raquo; <%= @site[:name] %></title>
+  <title>Admin &raquo; <%= @config.get(:site)[:name] %></title>
 
   <!-- Font -->
   <link href='https://fonts.googleapis.com/css?family=Lato:300,400,600,700,800' rel='stylesheet' type='text/css'>
 
   <!-- Styles -->
   <%= stylesheet_link_tag 'admin', media: 'all' %>
+
+  <!-- Scripts -->
+  <%= javascript_include_tag 'admin' %>
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -17,6 +20,5 @@
 </head>
 <body>
 <%= content_for(:content) %>
-<%= javascript_include_tag 'admin' %>
 </body>
 </html>

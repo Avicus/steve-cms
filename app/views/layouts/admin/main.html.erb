@@ -2,8 +2,8 @@
     <header id="header">
       <div id="logo">
         <h1>
-          <%= @site[:name] %>
-          <small><%= raw @site[:tagline] %></small>
+          <%= @config.get(:site)[:name] %>
+          <small><%= raw @config.get(:site)[:tagline] %></small>
         </h1>
       </div>
       <div id="actions" class="pull-right">
@@ -33,17 +33,17 @@
       </aside>
       <section id="content_wrapper">
         <div id="content">
-          <div class="content-header">
-            <ol class="breadcrumb">
-              <li class="crumb-active">
-                <a href="/admin/panel">Panel</a>
-              </li>
-              <li class="crumb-link">
-                <a href="/admin">Home</a>
-              </li>
-              <li class="crumb-trail">Panel</li>
-            </ol>
-          </div>
+          <!--<div class="content-header">-->
+            <!--<ol class="breadcrumb">-->
+              <!--<li class="crumb-active">-->
+                <!--<a href="/admin/panel">Panel</a>-->
+              <!--</li>-->
+              <!--<li class="crumb-link">-->
+                <!--<a href="/admin">Home</a>-->
+              <!--</li>-->
+              <!--<li class="crumb-trail">Panel</li>-->
+            <!--</ol>-->
+          <!--</div>-->
 
           <%= yield %>
         </div>
@@ -52,7 +52,7 @@
 
     <footer id="footer" class="ribbon">
       <p>
-        <b>Steve CMS v0.4.0-BETA</b> &raquo; Made with <i class="fa fa-heart"></i> by Keenan Thompson
+        <b><%= @cms[:full_name] %></b> &raquo; Made with <i class="fa fa-heart"></i> by Keenan Thompson
       </p>
     </footer>
 <% end %>

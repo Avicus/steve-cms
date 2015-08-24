@@ -1,0 +1,21 @@
+--- !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+authentication: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  username:
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    enabled: true
+    identifier: true
+    minecraft-auth:
+    - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+      enabled: true
+      secret: qvqAD5CyZCt3QvtU
+    regex: '[a-zA-Z0-9_]{1,16}'
+  email:
+  - !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+    enabled: true
+site: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
+  name: Relic Realms
+  tagline: the place to be.
+  date_format: 08/20/2015
+  time_format: 6:25 AM
+  language: English (US)
+  theme: arc

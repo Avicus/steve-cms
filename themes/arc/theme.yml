@@ -1,0 +1,5 @@
+routes:
+  root: index.html
+  paths:
+  - path: "/"
+    file: index.html
