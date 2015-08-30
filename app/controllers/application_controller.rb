@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     @cms[:version] = 'v0.0.0-BETA'
     @cms[:full_name] = @cms[:name] + ' ' + @cms[:version]
 
-    @@config = Setting.main
+    @config = Setting.main
   end
 
   def current_user
