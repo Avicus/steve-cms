@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :usernames
+  has_many :user_groups, :dependent => :delete_all
 
   attr_accessor :password_confirmation
   attr_accessor :username

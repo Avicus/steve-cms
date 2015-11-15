@@ -14,7 +14,7 @@ authentication: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
     enabled: true
 site: !ruby/hash:ActiveSupport::HashWithIndifferentAccess
   name: Relic Realms
-  tagline: the place to be.
+  tagline: An adventure is waiting for you!
   date_format: 08/20/2015
   time_format: 6:25 AM
   language: English (US)

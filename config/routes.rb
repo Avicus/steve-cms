@@ -13,6 +13,11 @@ SteveCms::Application.routes.draw do
       post '' => 'settings#index'
     end
 
+    scope 'groups' do
+      get '' => 'groups#index', :as => 'groups'
+      post '' => 'groups#index'
+    end
+
     get '*unmatched_route' => 'main#not_found'
   end
 

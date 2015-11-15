@@ -1,0 +1,17 @@
+authentication:
+  username:
+  - enabled: true
+    identifier: true
+    minecraft-auth:
+    - enabled: true
+      secret: qvqAD5CyZCt3QvtU
+    regex: '[a-zA-Z0-9_]{1,16}'
+  email:
+  - enabled: true
+site:
+  name: Relic Realms
+  tagline: An adventure is waiting for you!
+  date_format: 08/20/2015
+  time_format: 6:25 AM
+  language: English (US)
+  theme: arc

@@ -6,12 +6,12 @@ class ClientController < ApplicationController
     Rails.root.join('themes')
   end
 
-  def file_from_name(name, theme = @@config.get(:site)[:theme])
+  def file_from_name(name, theme = @config.get(:site)[:theme])
     themes_dir.join(theme, name)
   end
 
   def file_from_route(url)
-    routes = Setting.open(themes_dir.join(@@config.get(:site)[:theme], 'theme.yml')).get(:routes)
+    routes = Setting.open(themes_dir.join(@config.get(:site)[:theme], 'theme.yml')).get(:routes)
 
     routes[:paths].each do |route|
       if route[:path] == url
