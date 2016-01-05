@@ -18,3 +18,5 @@ Once complete Steve CMS should include the following features.
 - Templates
   - Localization
 - API?
+
+![](http://i.imgur.com/iDRmMZt.png)
